@@ -1,0 +1,7 @@
+name: lue_qa
+channels:
+- conda-forge
+- defaults
+dependencies:
+- docopt
+- python

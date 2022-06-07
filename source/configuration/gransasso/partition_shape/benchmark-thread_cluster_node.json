@@ -1,0 +1,11 @@
+{
+    "scenario": "thread_cluster_node",
+    "count": 3,
+    "locality_per": "cluster_node",
+    "worker": {
+        "type": "thread",
+        "pool": {
+            "size": 4
+        }
+    }
+}

@@ -1,0 +1,8 @@
+{
+    "command_pathname": "$LUE_QA_COMMAND_PREFIX/hello_world.py",
+    "script_pathname": "hello_world-strong_scalability.sh",
+    "result_prefix": "$LUE_QA_RESULT_PREFIX",
+    "cluster": "$LUE_QA/configuration/velocity/cluster.json",
+    "benchmark": "$LUE_QA/configuration/velocity/scalability/thread_numa_node.json",
+    "experiment": "$LUE_QA_CONFIG_PREFIX/my_strong_scalability-thread_numa_node.json"
+}

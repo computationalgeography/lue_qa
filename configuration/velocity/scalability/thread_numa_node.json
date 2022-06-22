@@ -6,7 +6,7 @@
         "type": "thread",
         "pool": {
             "min_size": 1,
-            "max_size": 6,
+            "max_size": 12,
             "incrementor": 1
         }
     }

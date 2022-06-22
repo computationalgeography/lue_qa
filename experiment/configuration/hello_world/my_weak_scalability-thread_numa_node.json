@@ -1,0 +1,14 @@
+{
+    "array": {
+        "shape": [7000, 7000]
+    },
+    "partition": {
+        "shape": [1000, 1000]
+    },
+    "arguments": {
+        "positionals": [
+        ],
+        "options": {
+        }
+    }
+}

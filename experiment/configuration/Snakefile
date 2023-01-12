@@ -11,10 +11,10 @@ def input_pathnames(wildcards):
     Given the wildcards called hostname, experiment, command, and worker, return a list of
     input files used in the rule
     """
-    result_prefix = config["result_prefix"]
     prefix = config["lue_qa"]
-    cluster_prefix=f"{prefix}/configuration"
-    experiment_prefix=f"{prefix}/experiment/configuration/{wildcards.command}"
+    cluster_configuration=f"{prefix}/configuration"
+    experiment_configuration=f"{prefix}/experiment/configuration"
+    result_prefix = config["result_prefix"]
 
     # General, experiment and worker configs are rooted at:
     # prefix/cluster
@@ -28,16 +28,13 @@ def input_pathnames(wildcards):
     # These all have to exist!
 
     return {
-            # "result_prefix":
-            #     f"{result_prefix}",
             "cluster":
-                f"{cluster_prefix}/{wildcards.hostname}/cluster.json",
+                f"{cluster_configuration}/{wildcards.hostname}/cluster.json",
             "worker":
-                f"{cluster_prefix}/{wildcards.hostname}/{wildcards.worker}/{wildcards.experiment}.json",
+                f"{cluster_configuration}/{wildcards.hostname}/{wildcards.worker}/{wildcards.experiment}.json",
             # TODO Ditch experiment stuff. It is command and data config, per kind of worker.
             "experiment":
-                # f"{experiment_prefix}/{wildcards.hostname}/{wildcards.command}/{wildcards.experiment}/{wildcards.worker}.json",
-                f"{experiment_prefix}/{wildcards.hostname}/{wildcards.command}/{wildcards.worker}/{wildcards.experiment}.json",
+                f"{experiment_configuration}/{wildcards.hostname}/{wildcards.command}/{wildcards.worker}/{wildcards.experiment}.json",
         }
 
 

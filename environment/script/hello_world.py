@@ -42,12 +42,12 @@ def hello_world(
     experiment.start()
 
     for c in range(count):
-        # TODO perform some calculations on the workers and keep track of the timings
+        # Perform some calculations on the workers and keep track of the timings
 
         run = lqa.Run()
 
-        # Perform "I/O" and wait for it to finish
-        array = lfr.uniform(array_shape, partition_shape, np.dtype(np.float32), 0, 10)
+        # Perform "I/O" and wait for it to finish. Preprocessing.
+        array = lfr.uniform(array_shape, partition_shape, np.float32, 0, 10)
         lfr.wait(array)
 
         # Everything is ready to determine the latency of the calculations. Press start on the

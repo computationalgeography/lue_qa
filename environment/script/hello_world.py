@@ -47,7 +47,7 @@ def hello_world(
         run = lqa.Run()
 
         # Perform "I/O" and wait for it to finish. Preprocessing.
-        array = lfr.uniform(array_shape, partition_shape, np.float32, 0, 10)
+        array = lfr.uniform(array_shape, partition_shape, np.dtype(np.float32), 0, 10)
         lfr.wait(array)
 
         # Everything is ready to determine the latency of the calculations. Press start on the

@@ -1,5 +1,4 @@
 set -e
-set -x
 
 lue_install_prefix=$LUE_OBJECTS
 
@@ -8,8 +7,6 @@ export PATH="$lue_install_prefix/bin:$PATH"
 hostname=$(hostname -s)
 command="hello_world.py"
 
-# TODO Make this some argument
-worker="thread_numa_node"
 
 export PATH="$LUE/../lue_qa/environment/script:$PATH"
 
@@ -20,11 +17,19 @@ then
     export PYTHONPATH="$lue_install_prefix/lib/python3.10:$PYTHONPATH"
     export LD_PRELOAD="/usr/lib/x86_64-linux-gnu/libtcmalloc_minimal.so.4"
     result_prefix="/mnt/data2/kor/data/lue_qa"
+    worker="thread_numa_node"
+elif [[ $hostname == "snowdon" ]];
+then
+    export PYTHONPATH="$lue_install_prefix/lib/python3.10:$PYTHONPATH"
+    export LD_PRELOAD="/usr/lib/x86_64-linux-gnu/libtcmalloc_minimal.so.4"
+    result_prefix="/home/kor/development/data/lue_qa"
+    worker="thread_numa_node"
 elif [[ $hostname == "velocity" ]];
 then
     export PYTHONPATH="$lue_install_prefix/lib/python3.10:$PYTHONPATH"
     export LD_PRELOAD="$EBROOTGPERFTOOLS/lib/libtcmalloc_minimal.so.4"
     result_prefix="/developtest/data/lue_qa"
+    worker="thread_numa_node"
 fi
 
 # Maybe put the stuff above this line in some header bash script that contains the platform specific stuff?

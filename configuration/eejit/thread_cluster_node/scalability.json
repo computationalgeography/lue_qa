@@ -7,7 +7,7 @@
         "pool": {
             "min_size": 1,
             "max_size": 48,
-            "incrementor": 1
+            "incrementor": 2
         }
     }
     # "hpx": "$LUE/benchmark/configuration/eejit/strong_scaling/hpx.json"

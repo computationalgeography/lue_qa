@@ -1,0 +1,15 @@
+{
+    "max_duration": 60,
+    "array": {
+        "shape": [50000, 50000]
+    },
+    "partition": {
+        "shape": [2000, 2000]
+    },
+    "arguments": {
+        "positionals": [
+        ],
+        "options": {
+        }
+    }
+}

@@ -1,0 +1,12 @@
+{
+    "scenario": "thread_numa_node",
+    # "count": 5,
+    "count": 1,
+    "locality_per": "numa_node",
+    "worker": {
+        "type": "thread",
+        "pool": {
+            "size": 16
+        }
+    }
+}

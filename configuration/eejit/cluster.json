@@ -10,8 +10,8 @@
             ],
             "mpirun_options": [
                 # "--mca btl_openib_allow_ib true",
-                "--display-map",
-                "--display-allocation"
+                # "--display-map",
+                # "--display-allocation"
                 # "--rank-by numa"
                 # "--map-by numa"
             ]

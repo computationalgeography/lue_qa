@@ -1,0 +1,22 @@
+{
+    "nr_time_steps": 1,
+    "max_duration": 60,
+    "array": {
+        "shape": [100000, 100000]
+    },
+    "partition": {
+        "shape": [500, 500],
+        "range": {
+            "max_nr_elements": 5000000,
+            "multiplier": 2.0,
+            # "multiplier": 1.5,
+            "method": "linear"
+        }
+    },
+    "arguments": {
+        "positionals": [
+        ],
+        "options": {
+        }
+    }
+}

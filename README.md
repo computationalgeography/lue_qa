@@ -1,4 +1,4 @@
-# LUE-QA
+# LUE_QA
 LUE quality assurance
 
 The code in this repository helps us with testing the performance and scalabilility of models

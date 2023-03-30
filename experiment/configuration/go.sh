@@ -17,13 +17,11 @@ export PYTHONPATH="$(echo $lue_install_prefix/lib/python3.*):$PYTHONPATH"
 
 if [[ $hostname == "gransasso" ]];
 then
-    ### export PYTHONPATH="$lue_install_prefix/lib/python3.10:$PYTHONPATH"
     export LD_PRELOAD="/usr/lib/x86_64-linux-gnu/libtcmalloc_minimal.so.4"
     result_prefix="/mnt/data2/kor/data/lue_qa"
     worker="thread_numa_node"
 elif [[ $hostname == "eejit" ]];
 then
-    ### export PYTHONPATH="$lue_install_prefix/lib/python3.9:$PYTHONPATH"
     # TODO Setting this loads the wrong libz ...
     # export LD_PRELOAD="$GOOGLE_PERFTOOLS_ROOT/lib/libtcmalloc_minimal.so.4"
     result_prefix="$HOME/development/data/lue_qa"
@@ -41,13 +39,11 @@ then
     worker="thread_numa_node"
 elif [[ $hostname == "snowdon" ]];
 then
-    ### export PYTHONPATH="$lue_install_prefix/lib/python3.10:$PYTHONPATH"
     export LD_PRELOAD="/usr/lib/x86_64-linux-gnu/libtcmalloc_minimal.so.4"
     result_prefix="$HOME/development/data/lue_qa"
     worker="thread_numa_node"
 elif [[ $hostname == "velocity" ]];
 then
-    ### export PYTHONPATH="$lue_install_prefix/lib/python3.10:$PYTHONPATH"
     export LD_PRELOAD="$EBROOTGPERFTOOLS/lib/libtcmalloc_minimal.so.4"
     result_prefix="/developtest/data/lue_qa"
     worker="thread_numa_node"

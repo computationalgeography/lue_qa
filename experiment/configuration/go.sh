@@ -6,8 +6,11 @@ export PATH="$lue_install_prefix/bin:$PATH"
 
 hostname=$LUE_HOSTNAME
 
-command="hello_world.py"
+# project="202306_lue_course"
+command="model.py"
 
+# project="test"
+command="hello_world.py"
 
 export PATH="$LUE/../lue_qa/environment/script:$PATH"
 

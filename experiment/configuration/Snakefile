@@ -46,7 +46,7 @@ def create_script_input_pathnames(wildcards):
 
 
 # def execute_script_input_pathnames(wildcards):
-# 
+#
 #     return {
 #             "script":
 #                 f"{wildcards.result_prefix}/{wildcards.hostname}/{wildcards.command}/{wildcards.worker}/{wildcards.experiment}.sh",

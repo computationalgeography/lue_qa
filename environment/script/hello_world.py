@@ -1,39 +1,22 @@
 #!/usr/bin/env python
-import lue.framework as lfr
-import lue.qa as lqa
-import docopt
-import numpy as np
 import ast
 import os.path
 import sys
 
-
-lue_usage = """\
-Dummy script for scalability experiments
-
-Usage:
-    {command} --lue:count=<count> --lue:nr_workers=<nr_workers>
-        --lue:array_shape=<shape> --lue:partition_shape=<shape>
-        --lue:result=<result>
-
-Options:
-    --lue:count=<count>             Number of times to repeat the experiment
-    --lue:nr_workers=<nr_workers>   Number of workers used in experiment
-    --lue:array_shape=<shape>       Shape of array: nr_rows,nr_cols
-    --lue::partition_shape=<shape>  Shape of partition: nr_rows,nr_cols
-    --lue::result=<result>          Pathname of file to write results in
-""".format(
-    command=os.path.basename(sys.argv[0]))
+import docopt
+import lue.framework as lfr
+import lue.qa as lqa
+import numpy as np
 
 
 @lfr.runtime_scope
 def hello_world(
-        nr_workers,
-        count,
-        array_shape,
-        partition_shape,
-        result_pathname,
-    ):
+    nr_workers,
+    count,
+    array_shape,
+    partition_shape,
+    result_pathname,
+):
 
     # Given the information passed in, perform some computation and report the amount of time
     # this took.
@@ -41,7 +24,7 @@ def hello_world(
     experiment = lqa.ArrayExperiment(nr_workers, array_shape, partition_shape)
     experiment.start()
 
-    for c in range(count):
+    for _ in range(count):
         # Perform some calculations on the workers and keep track of the timings
 
         run = lqa.Run()
@@ -76,28 +59,45 @@ def parse_shape(string):
 
     literal = ast.literal_eval(string)
     assert isinstance(literal, list), literal
-    assert all([isinstance(element, int) for element in literal]), literal
+    assert all(isinstance(element, int) for element in literal), literal
     assert len(literal) == 2, literal
 
     return tuple(literal)
 
 
-if __name__ == "__main__":
+def main():
+    command = os.path.basename(sys.argv[0])
+    lue_usage = f"""\
+    Dummy script for scalability experiments
+
+    Usage:
+        {command} --lue:count=<count> --lue:nr_workers=<nr_workers>
+            --lue:array_shape=<shape> --lue:partition_shape=<shape>
+            --lue:result=<result>
+
+    Options:
+        --lue:count=<count>             Number of times to repeat the experiment
+        --lue:nr_workers=<nr_workers>   Number of workers used in experiment
+        --lue:array_shape=<shape>       Shape of array: nr_rows,nr_cols
+        --lue::partition_shape=<shape>  Shape of partition: nr_rows,nr_cols
+        --lue::result=<result>          Pathname of file to write results in
+    """
 
     # Filter out arguments meant for the HPX runtime. These are automatically parsed by the
     # code that starts the runtime.
-    hpx_arguments = [arg for arg in sys.argv[1:] if arg.startswith("--hpx:")]
+    # hpx_arguments = [arg for arg in sys.argv[1:] if arg.startswith("--hpx:")]
 
     # Parse arguments which are passed in by the LUE QA generated script
     lue_arguments = [arg for arg in sys.argv[1:] if arg.startswith("--lue:")]
     lue_arguments = docopt.docopt(lue_usage, lue_arguments)
-    nr_workers = parse_count(lue_arguments["--lue:nr_workers"])
-    count = parse_count(lue_arguments["--lue:count"])
-    array_shape = parse_shape(lue_arguments["--lue:array_shape"])
-    partition_shape = parse_shape(lue_arguments["--lue:partition_shape"])
-    result_pathname = lue_arguments["--lue:result"]
-
-    # arguments = [arg for arg in sys.argv[1:] if not arg in hpx_arguments and not arg in lue_arguments]
-    # TODO Parse any remaining arguments if necessary
+    nr_workers = parse_count(lue_arguments["--lue:nr_workers"])  # type: ignore
+    count = parse_count(lue_arguments["--lue:count"])  # type: ignore
+    array_shape = parse_shape(lue_arguments["--lue:array_shape"])  # type: ignore
+    partition_shape = parse_shape(lue_arguments["--lue:partition_shape"])  # type: ignore
+    result_pathname = lue_arguments["--lue:result"]  # type: ignore
 
     hello_world(nr_workers, count, array_shape, partition_shape, result_pathname)
+
+
+if __name__ == "__main__":
+    main()

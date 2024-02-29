@@ -1,0 +1,9 @@
+[tool.isort]
+lines_after_imports = 2
+profile = "black"
+
+[tool.pylint]
+disable = "C0103, C0114, C0115, C0116, C0302, E0401, W0212, W0511, R0801"
+extension-pkg-allow-list = [
+    "lue",
+]

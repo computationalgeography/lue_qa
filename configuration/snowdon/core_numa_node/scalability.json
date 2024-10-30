@@ -1,5 +1,5 @@
 {
-    "scenario": "thread_numa_node",
+    "scenario": "core_numa_node",
     "count": 1,
     "locality_per": "cluster_node",
     "worker": {

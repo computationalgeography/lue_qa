@@ -1,4 +1,3 @@
 docopt
 numpy
 pre-commit
-snakemake

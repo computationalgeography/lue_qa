@@ -1,13 +1,12 @@
 {
-    "scenario": "thread_numa_node",
-    # "count": 5,
-    "count": 1,
+    "scenario": "core_numa_node",
+    "count": 3,
     "locality_per": "numa_node",
     "worker": {
         "type": "thread",
         "pool": {
             "min_size": 1,
-            "max_size": 16,
+            "max_size": 12,
             "incrementor": 1
         }
     }

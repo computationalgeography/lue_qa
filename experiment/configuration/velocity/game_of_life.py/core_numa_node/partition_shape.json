@@ -1,0 +1,19 @@
+{
+    "array": {
+        "shape": [10000, 10000]
+    },
+    "partition": {
+        "shape": [500, 500],
+        "range": {
+            "max_nr_elements": 1500000,
+            "multiplier": 1.5,
+            "method": "linear"
+        }
+    },
+    "arguments": {
+        "positionals": [
+        ],
+        "options": {
+        }
+    }
+}

@@ -10,7 +10,7 @@
             "nr_numa_nodes": 1,
             "numa_node": {
                 "memory": 315,
-                "nr_cores": 48,
+                "nr_cores": 24,
                 "core": {
                     "nr_threads": 2
                 }

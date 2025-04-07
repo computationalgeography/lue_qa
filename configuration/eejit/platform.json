@@ -5,14 +5,15 @@
         "settings": {
             "partition": "defq",
             "sbatch_options": [
-                # "--qos=swdev"
-                # # "--qos=priority"
+                # "--qos=swdev",
+                # # "--qos=priority",
+                # "--export=ALL,MODULEPATH=/depfg/easybuild/foss2024a/modules/all/"
             ],
             "mpirun_options": [
                 # "--mca btl_openib_allow_ib true",
                 # "--display-map",
-                # "--display-allocation"
-                # "--rank-by numa"
+                # "--display-allocation",
+                # "--rank-by numa",
                 # "--map-by numa"
             ],
             "srun_options": [
@@ -31,10 +32,10 @@
     },
     "software_environment": {
         "modules": [
-            "Python/3.11",
-            "GDAL/3.7",
-            "HDF5/1.14",
-            "HPX/1.10"
+            # "Python/3.12",
+            # "GDAL/3.10",
+            # "HDF5/1.14",
+            # "HPX/1.10"
         ]
     },
     "nr_cluster_nodes": 96,

@@ -1,6 +1,6 @@
 {
     "scenario": "core_numa_node",
-    "count": 3,
+    "count": 5,
     "locality_per": "numa_node",
     "worker": {
         "type": "thread",
@@ -10,5 +10,4 @@
             "incrementor": 1
         }
     }
-    # "hpx": "$LUE/benchmark/configuration/eejit/strong_scaling/hpx.json"
 }

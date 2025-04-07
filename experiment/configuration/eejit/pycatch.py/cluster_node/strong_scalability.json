@@ -1,9 +1,9 @@
 {
     "array": {
-        "shape": [5000, 5000]
+        "shape": [25000, 25000]
     },
     "partition": {
-        "shape": [707, 707]
+        "shape": [1039, 1039]
     },
     "arguments": {
         "positionals": [

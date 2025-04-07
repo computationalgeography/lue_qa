@@ -1,6 +1,6 @@
 {
     "scenario": "core_cluster_node",
-    "count": 1,
+    "count": 5,
     "locality_per": "cluster_node",
     "worker": {
         "type": "thread",
@@ -10,5 +10,4 @@
             "incrementor": 2
         }
     }
-    # "hpx": "$LUE/benchmark/configuration/eejit/strong_scaling/hpx.json"
 }

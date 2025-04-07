@@ -1,5 +1,9 @@
 # eejit
 
+- All nodes have the same CPU, except for node046, node047 and node048.
+- The `defq` partition contains the nodes that contain the same CPUs
+
+
 ## Specifications
 <table>
     <tr>
